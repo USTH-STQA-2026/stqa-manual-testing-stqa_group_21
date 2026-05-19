@@ -68,6 +68,7 @@
 ### IDM — Xử lý sách quá hạn (REQ-06)
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|---|---|---|---|
 | So sánh ngày hết hạn(DueDate) và Ngày hiện tại(Now) - (được quét khi thủ thư nhấn nút) | chưa đến hạn (dueDate > Now) | Phiếu mượn có duedate là ngày mai | không thay đổi giữ nguyên trạng thái "Đang mượn" |
 || Đúng ngày hết hạn( dueDate = Now ) | Phiếu mượn có dueDate là hôm nay | Chuyển trạng thái "Quá hạn" |
 || Đã qua ngày hết hạn( dueDate < Now ) | Phiếu mượn có dueDate là hôm qua | Chuyển trạng thái sang "quá hạn" |
@@ -79,6 +80,7 @@
 ### IDM — Quản lý thành viên (REQ-07)
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|---|---|---|---|
 | Quyền truy cập chức năng | Thủ thư(librarian) | đăng nhập bằng tải khoản thủ thư | Hiển thị nút/form "thêm thành viên" và cho phép thao tác |
 || thành viên(member) | đăng nhập bằng tài khoản thành viên | ẩn chức năng "thêm thành viên" hoặc báo lỗi "không có quyền truy cập " |
 | Định dạng Email | Hợp lệ(có @ và có . trong domain) | user@domain.com | Qua bước kiểm tra định dạng, tiếp tục xử lý. |
@@ -92,6 +94,7 @@
 ### IDM — Tra cứu phiếu mượn (REQ-08)
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|---|---|---|---|
 | Vai trò/Quyền truy cập dữ liệu | Thủ thư(librarian) | Đăng nhập tài khoản thủ thư | Hiển thị toàn bộ phiếu mượn của hệ thống( bao gồm của user A, user B,...)|
 || Thành viên(member) | Đăng nhập tài khoản User A | Chỉ hiện thị các phiếu mượn thuộc về User A. Tuyệt đối không hiển thị phiếu của User B |
 | Trạng thái phiếu mượn hiển thị | Đang mượn | Phiếu mượn chưa trả và chưa tới hạn | Cột trạng thái hiển thị đúng text "Đang mượn" |
