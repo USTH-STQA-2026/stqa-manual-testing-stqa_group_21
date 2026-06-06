@@ -9,7 +9,12 @@
 | **Nhóm** | Nhóm 21 |
 | **Ngày báo cáo** | 19/05/2026 |
 
-## BUG-01
+**Environment:**
+- Browser: Chrome Version 148.0.7778.168
+- Operating System: Windows
+- Interface Language: English
+
+## BUG-01: Book genre filter is case-sensitive — entering "công nghệ" (lowercase) returns 0 results
 
 | Attribute | Detail |
 |-----------|---------|
@@ -23,11 +28,6 @@
 
 **Title:**
 Book genre filter is case-sensitive — entering "công nghệ" (lowercase) returns 0 results
-
-**Environment:**
-- Browser: Chrome Version 148.0.7778.168
-- Operating System: Windows
-- Interface Language: Vietnamese
 
 **Preconditions:**
 User is logged in. System has at least 8 books in the "Công nghệ" category.
@@ -53,7 +53,7 @@ Normalize both the filter input and the stored category values to the same case 
 
 ---
 
-## BUG-02
+## BUG-02: System displays incorrect rejection reason when a suspended member attempts to borrow a book
 
 | Attribute | Detail |
 |-----------|---------|
@@ -67,11 +67,6 @@ Normalize both the filter input and the stored category values to the same case 
 
 **Title:**
 System displays incorrect rejection reason when a suspended member attempts to borrow a book
-
-**Environment:**
-- Browser: Chrome Version 148.0.7778.168
-- Operating System: Windows
-- Interface Language: Vietnamese
 
 **Preconditions:**
 Data has been reset. Member `cu.le@email.com` (MEM004) exists in the system with status "Suspended".
@@ -98,7 +93,7 @@ Separate the display condition for each member status and map the correct messag
 
 ---
 
-## BUG-03
+## BUG-03: System allows a member to borrow a 4th book, exceeding the 3-book limit
 
 | Attribute | Detail |
 |-----------|---------|
@@ -112,11 +107,6 @@ Separate the display condition for each member status and map the correct messag
 
 **Title:**
 System allows a member to borrow a 4th book, exceeding the 3-book limit
-
-**Environment:**
-- Browser: Chrome Version 148.0.7778.168
-- Operating System: Windows
-- Interface Language: Vietnamese
 
 **Preconditions:**
 Data has been reset. Member `biet.hoang@email.com` (MEM006) is active and currently has 1 book borrowed (BR003 — BOOK013).
@@ -143,7 +133,7 @@ Check the number of currently borrowed books before allowing a new borrow reques
 
 ---
 
-## BUG-04
+## BUG-04: System does not display overdue warning when a book is returned past its due date
 
 | Attribute | Detail |
 |-----------|---------|
@@ -157,11 +147,6 @@ Check the number of currently borrowed books before allowing a new borrow reques
 
 **Title:**
 System does not display overdue warning when a book is returned past its due date
-
-**Environment:**
-- Browser: Chrome Version 148.0.7778.168
-- Operating System: Windows
-- Interface Language: Vietnamese
 
 **Preconditions:**
 Data has been reset. Borrow record BR001 (MEM002 — ba.nguyen@email.com) has dueDate = 15/09/2024 — already overdue compared to today's date.
@@ -191,7 +176,7 @@ When a member returns a book, the system should compare the actual return date w
 
 ---
 
-## BUG-05
+## BUG-05: Member is able to view and return borrow records belonging to another member
 
 | Attribute | Detail |
 |-----------|---------|
@@ -205,11 +190,6 @@ When a member returns a book, the system should compare the actual return date w
 
 **Title:**
 Member is able to view and return borrow records belonging to another member
-
-**Environment:**
-- Browser: Chrome Version 148.0.7778.168
-- Operating System: Windows
-- Interface Language: Vietnamese
 
 **Preconditions:**
 Logged in as Regular Member `ba.nguyen@email.com` (MEM002). MEM006 has at least one active borrow record (BR003) in the system.
@@ -251,7 +231,7 @@ When a member performs a borrow record lookup or a return action, the system mus
 
 ---
 
-## BUG-06
+## BUG-06: System does not mark borrow record as "Overdue" on the exact due date
 
 | Attribute | Detail |
 |-----------|---------|
@@ -265,11 +245,6 @@ When a member performs a borrow record lookup or a return action, the system mus
 
 **Title:**
 System does not mark borrow record as "Overdue" on the exact due date
-
-**Environment:**
-- Browser: Chrome Version 148.0.7778.168
-- Operating System: Windows
-- Interface Language: Vietnamese
 
 **Preconditions:**
 - Member `ba.nguyen@email.com` has an active borrow record BR001 with dueDate = borrow date + 14 days and status "Borrowing"
@@ -299,7 +274,7 @@ Fix the overdue check condition from `dueDate < today` to `dueDate <= today` so 
 
 ---
 
-## BUG-07 
+## BUG-07: Email validation logic is incorrect — valid emails are rejected and invalid emails are accepted
 
 | Attribute | Detail |
 |-----------|---------|
@@ -313,11 +288,6 @@ Fix the overdue check condition from `dueDate < today` to `dueDate <= today` so 
 
 **Title:**
 Email validation logic is incorrect — valid emails are rejected and invalid emails are accepted
-
-**Environment:**
-- Browser: Chrome Version 148.0.7778.168
-- Operating System: Windows
-- Interface Language: Vietnamese
 
 **Preconditions:**
 Logged in as Librarian (librarian@library.com / admin123). Add Member form is accessible.
